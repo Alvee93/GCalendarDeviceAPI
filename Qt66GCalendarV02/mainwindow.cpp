@@ -37,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //QString addr_qStr; // this string will hold the address or blank string
+
     QLoggingCategory::setFilterRules("qt.network.ssl.w arning=false");  // just to ignore the logged ssl warnings
 
     // create custom temporary event loop on stack
@@ -47,19 +49,20 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(&mgr, SIGNAL(finished(QNetworkReply*)), &eventLoop, SLOT(quit()));
 
     // the HTTP request
-    QNetworkRequest networkRequest( QUrl( QString("https://accounts.google.com/o/oauth2/device/code")));
+    QUrl device_url = "https://accounts.google.com/o/oauth2/device/code";
+    QNetworkRequest networkRequest(device_url);
     networkRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
+    QString scope_url =  "https://www.googleapis.com/auth/calendar.readonly";
     QString content = QString("client_id=%1&scope=%2")
-            .arg("262658486767-qddccp22dhrh6uk682g7uq26itntf0vo.apps.googleusercontent.com")
-            .arg("https://www.googleapis.com/auth/calendar.readonly");
+            .arg(client_id)
+            .arg(scope_url);
 
     QNetworkReply *addr_reply = mgr.post(networkRequest, content.toUtf8());
     eventLoop.exec(); // blocks stack until "finished()" has been called
 
     if (addr_reply->error() == QNetworkReply::NoError) {
 
-        //qDebug() << "Success " <<addr_reply->readAll() << "\n";
         QByteArray jsonData = addr_reply->readAll();
 
         QJsonDocument document = QJsonDocument::fromJson(jsonData);
@@ -84,6 +87,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_web->setZoomFactor(0.85);
     ui->label_web->resize(440, 370);
     ui->label_web->show();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -103,7 +108,8 @@ void MainWindow::on_pushButton_token_clicked()
     QObject::connect(&mgr, SIGNAL(finished(QNetworkReply*)), &eventLoop, SLOT(quit()));
 
     // the HTTP request
-    QNetworkRequest networkRequest( QUrl( QString("https://www.googleapis.com/oauth2/v4/token")));
+    QUrl token_url = "https://www.googleapis.com/oauth2/v4/token";
+    QNetworkRequest networkRequest(token_url);
     networkRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
     QString content = QString("client_id=%1&client_secret=%2&code=%3&grant_type=%4")
@@ -117,7 +123,6 @@ void MainWindow::on_pushButton_token_clicked()
 
     if (addr_reply->error() == QNetworkReply::NoError) {
 
-        //qDebug() << "Success " <<addr_reply->readAll() << "\n";
         QByteArray jsonData = addr_reply->readAll();
 
         QJsonDocument document = QJsonDocument::fromJson(jsonData);
@@ -144,7 +149,8 @@ void MainWindow::on_pushButton_event_clicked()
     QObject::connect(&mgr, SIGNAL(finished(QNetworkReply*)), &eventLoop, SLOT(quit()));
 
     // the HTTP request
-    QNetworkRequest networkRequest( QUrl( QString("https://www.googleapis.com/calendar/v3/calendars/primary/events?timeMax=2018-08-11T23%3A59%3A59%2B06%3A00&timeMin=2018-08-05T00%3A00%3A00%2B06%3A00&fields=items%2Fsummary")));
+    QUrl api_endpoint = "https://www.googleapis.com/calendar/v3/calendars/primary/events?timeMax=2018-08-11T23%3A59%3A59%2B06%3A00&timeMin=2018-08-05T00%3A00%3A00%2B06%3A00&fields=items%2Fsummary";
+    QNetworkRequest networkRequest(api_endpoint);
 
     QString prepared_access_token = "Bearer " + access_token;
     networkRequest.setRawHeader("Authorization", prepared_access_token.toUtf8());
@@ -154,7 +160,6 @@ void MainWindow::on_pushButton_event_clicked()
 
     if (addr_reply->error() == QNetworkReply::NoError) {
 
-        //qDebug() << "Success " <<addr_reply->readAll() << "\n";
         QByteArray jsonData = addr_reply->readAll();
 
         QJsonDocument document = QJsonDocument::fromJson(jsonData);
