@@ -37,8 +37,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //QString addr_qStr; // this string will hold the address or blank string
-
     QLoggingCategory::setFilterRules("qt.network.ssl.w arning=false");  // just to ignore the logged ssl warnings
 
     // create custom temporary event loop on stack
@@ -61,7 +59,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     if (addr_reply->error() == QNetworkReply::NoError) {
 
-        //success WORKS WELL somehow enabling this dont show the parsed json values!!!
         //qDebug() << "Success " <<addr_reply->readAll() << "\n";
         QByteArray jsonData = addr_reply->readAll();
 
@@ -81,15 +78,12 @@ MainWindow::MainWindow(QWidget *parent) :
     // Web view Portion
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    //QWebEngineView *mView_2 = new QWebEngineView();
+
     ui->label_web->setAttribute( Qt::WA_DeleteOnClose );      // delete object on closing or exiting
     ui->label_web->load(QUrl("https://www.google.com/device"));
     ui->label_web->setZoomFactor(0.85);
     ui->label_web->resize(440, 370);
-    //ui->label_web->setWindowTitle("Login Screen");
     ui->label_web->show();
-
-
 }
 
 MainWindow::~MainWindow()
@@ -123,7 +117,6 @@ void MainWindow::on_pushButton_token_clicked()
 
     if (addr_reply->error() == QNetworkReply::NoError) {
 
-        //success WORKS WELL somehow enabling this dont show the parsed json values!!!
         //qDebug() << "Success " <<addr_reply->readAll() << "\n";
         QByteArray jsonData = addr_reply->readAll();
 
@@ -161,7 +154,6 @@ void MainWindow::on_pushButton_event_clicked()
 
     if (addr_reply->error() == QNetworkReply::NoError) {
 
-        //success WORKS WELL somehow enabling this dont show the parsed json values!!!
         //qDebug() << "Success " <<addr_reply->readAll() << "\n";
         QByteArray jsonData = addr_reply->readAll();
 
