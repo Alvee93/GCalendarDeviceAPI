@@ -13,7 +13,7 @@
 #include <QJsonValue>
 #include <QJsonArray>
 
-#include <QWebEngineView> // this is for the login webview
+#include <QWebEngineView> // this is for the login-form's webview
 
 #include <QString>
 #include <QLoggingCategory> // this is for disabling the ssl certificate warnings
