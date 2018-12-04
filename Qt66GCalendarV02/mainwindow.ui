@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>702</width>
-    <height>460</height>
+    <width>703</width>
+    <height>470</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,34 +20,39 @@
       <x>10</x>
       <y>10</y>
       <width>440</width>
-      <height>370</height>
+      <height>381</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>440</width>
+      <height>0</height>
+     </size>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_login">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>20</y>
-      <width>200</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Login</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_token">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>110</y>
-      <width>200</width>
+      <x>457</x>
+      <y>132</y>
+      <width>199</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>199</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>219</width>
+      <height>16777215</height>
+     </size>
     </property>
     <property name="text">
      <string>Ingnite</string>
@@ -56,50 +61,48 @@
    <widget class="QPushButton" name="pushButton_event">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>150</y>
-      <width>200</width>
+      <x>457</x>
+      <y>161</y>
+      <width>199</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>199</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>219</width>
+      <height>16777215</height>
+     </size>
     </property>
     <property name="text">
      <string>Get Event Info</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_code_text">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>60</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Code:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_code">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>60</y>
-      <width>161</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>~User Code~</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_event">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>200</y>
-      <width>201</width>
-      <height>81</height>
+      <x>457</x>
+      <y>190</y>
+      <width>199</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>199</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>219</width>
+      <height>16777215</height>
+     </size>
     </property>
     <property name="text">
      <string>~Event Info~</string>
@@ -108,13 +111,88 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_login">
+    <property name="geometry">
+     <rect>
+      <x>457</x>
+      <y>11</y>
+      <width>199</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>199</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>219</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Login</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_code">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>40</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>199</width>
+      <height>23</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>~User Code~</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_code_text">
+    <property name="geometry">
+     <rect>
+      <x>458</x>
+      <y>41</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>199</width>
+      <height>23</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Code:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>702</width>
+     <width>703</width>
      <height>21</height>
     </rect>
    </property>
