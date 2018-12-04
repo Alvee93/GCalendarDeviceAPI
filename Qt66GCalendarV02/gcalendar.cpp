@@ -1,8 +1,8 @@
 #include "gcalendar.h"
 
 using namespace std;
-QString client_id="262658486767-qddccp22dhrh6uk682g7uq26itntf0vo.apps.googleusercontent.com";
-QString client_secret="prYAYIMZSdOb-f9An-82JIUH";
+QString client_id="_CLIENT_ID_goes_here_";
+QString client_secret="_CLIENT_SECRET_goes_here_";
 QString device_code;
 QString user_code;
 QString grant_type = "http://oauth.net/grant_type/device/1.0";
