@@ -40,7 +40,7 @@ QString GCalendar::gLogin()
 
     if (addr_reply->error() == QNetworkReply::NoError) {
 
-        //success WORKS WELL somehow enabling this dont show the parsed json values!!!
+        //success WORKS WELL, however enabling this dont show the parsed json values!
         //qDebug() << "Success " <<addr_reply->readAll() << "\n";
         QByteArray jsonData = addr_reply->readAll();
 
